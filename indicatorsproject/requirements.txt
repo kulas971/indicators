@@ -1,0 +1,5 @@
+Django==3.1.1
+postgres
+django-bootstrap3
+pandas
+beautifulsoup4

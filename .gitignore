@@ -1,0 +1,6 @@
+indicatorsproject/media/*
+
+__pycache__
+*.pyc
+doc_templates.py
+htmlparse.py
