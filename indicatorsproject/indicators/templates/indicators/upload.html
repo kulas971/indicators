@@ -9,6 +9,7 @@
       {% csrf_token %}
       {% bootstrap_form form %}
       <input type="submit" class="btn btn-default" value="Upload!">
+      <a class="btn btn-default" href="{% url 'accounts:logout' %}"> Log Out </a>
     </form>
   </div>
 <br>

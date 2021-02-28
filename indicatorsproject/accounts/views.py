@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, RedirectView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -15,20 +15,16 @@ from django.views.generic import FormView, RedirectView
 
 from .forms import AccountRegisterForm
 
-class HomeView(TemplateView):
-    template_name = 'home.html'
-
-class HomeLoggedView(LoginRequiredMixin, TemplateView):
-    template_name = 'accounts/logged_in.html'
+class HomeView(RedirectView):
+    url = '/indicators/upload/'
 
 class SignUpView(SuccessMessageMixin, CreateView):
   template_name = 'accounts/signup.html'
-
   form_class = AccountRegisterForm
   success_message = "Your profile was created successfully"
 
   def get_success_url(self):
-        return reverse_lazy('accounts:login')
+        return reverse_lazy('indicators:upload')
 
 class LoginView(FormView):
 
@@ -58,16 +54,11 @@ class LoginView(FormView):
 
     def get_success_url(self):
         return reverse_lazy('accounts:home_logged')
-        # redirect_to = self.request.REQUEST.get(self.redirect_field_name)
-        # if not is_safe_url(url=redirect_to, host=self.request.get_host()):
-        #     redirect_to = self.success_url
-        # return redirect_to
 
 
 class LogoutView(RedirectView):
 
     url = '/accounts/login/'
-
     def get(self, request, *args, **kwargs):
         auth_logout(request)
         return super().get(request, *args, **kwargs)
