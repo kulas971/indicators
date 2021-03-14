@@ -6,6 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url = '/indicators/upload/')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('indicators/', include('indicators.urls', namespace='indicators')),
+    path('indicators/', include('indicators.urls', namespace='indicators'))
 
 ]
