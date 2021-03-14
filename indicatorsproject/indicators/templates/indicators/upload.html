@@ -14,15 +14,20 @@
   </div>
 <br>
 {% if brsf %}
-<div class="left: 50%">
-  <table class='brsf' style='left: 50%'>
+<div class='col-sm-2'>
+  <table class='table table-striped' style='left: 50%'>
   {% for name, value in brsf %}
 
       <tr class='{{name}}'>
         <td>{{name}}</td>
         <td style='margin:0 auto;text-align:right'>{{value}}</td>
       </tr>
-
+      {% if forloop.counter == 10 or forloop.counter == 18 %}
+        <tr class='danger'>
+          <td></td>
+          <td></td>
+        </tr>
+      {% endif %}
   {% endfor %}
   </table>
 </div>
