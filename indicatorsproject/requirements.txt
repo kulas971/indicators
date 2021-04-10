@@ -4,3 +4,4 @@ django-bootstrap3
 pandas
 beautifulsoup4
 requests
+uWSGI 2.0.18,<2.1
