@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-ENV PYTHONUNBUFFERED 1
+ENV PATH="/scripts:${PATH}"
 
 COPY ./requirements.txt /requirements.txt
 RUN apk add zlib-dev jpeg-dev gcc musl-dev
@@ -9,10 +9,9 @@ RUN pip install -r /requirements.txt
 RUN mkdir /indicators
 COPY ./indicatorsproject /indicatorsproject/
 WORKDIR /indicatorsproject
+COPY ./scripts /scripts
 
-
-
-
+RUN chmod +x /scripts/*
 
 RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
