@@ -48,7 +48,7 @@ class LoginView(FormView):
         return super(LoginView, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('accounts:home_logged')
+        return reverse_lazy('indicators:upload')
 
 
 class LogoutView(RedirectView):

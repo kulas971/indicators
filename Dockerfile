@@ -1,9 +1,12 @@
-FROM python:3.8-alpine
+FROM python:3.8-slim-buster
 
 ENV PATH="/scripts:${PATH}"
 
-COPY ./requirements.txt /requirements.txt
-RUN apk add zlib-dev jpeg-dev gcc musl-dev
+COPY ./indicatorsproject/requirements.txt /requirements.txt
+RUN apt-get update && apt-get install -y \
+  gcc \
+  libc-dev \
+  && rm -rf /var/lib/{apt,dpkg,cache,log}/
 RUN pip install -r /requirements.txt
 
 RUN mkdir /indicators
@@ -16,7 +19,7 @@ RUN chmod +x /scripts/*
 RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
 
-RUN adduser -D user
+RUN adduser user
 RUN chown -R user:user /vol
 RUN chmod -R 755 /vol/web
 USER user

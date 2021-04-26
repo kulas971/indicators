@@ -1,17 +1,27 @@
 version: "3.7"
 
 services:
-  indicatorsproject:
+  webapp:
+    tty: true
     build:
       context: .
+    container_name: indicators_app
     ports:
       - "8000:8000"
     volumes:
       - ./indicatorsproject:/indicatorsproject
     command: >
-      sh -c "python estate_pro/manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py runserver 0:8000"
     environment:
       - DEBUG=1
+    depends_on:
+      - db
 
-db:
-  image: indicators_db
+  db:
+    image: postgres
+    ports:
+      - '5432'
+    environment:
+      - POSTGRES_DB=indicators_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrespassword
