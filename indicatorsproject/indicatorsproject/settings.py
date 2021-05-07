@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'indicators_db',
         'USER': 'postgres',
         'PASSWORD': 'postgrespassword',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
