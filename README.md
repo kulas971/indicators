@@ -16,13 +16,17 @@ To do:
 
 # How to use
 Download the repository.
+
 Start with docker:
+
 cd to /indicators and use docker-compose
 ```
 docker-compose up
 ```
 Start with Python:
+
 Preferably create a virtual environment.
+
 cd to /indicators/indicatorsproject
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install packages.
 ```
