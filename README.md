@@ -14,3 +14,25 @@ Biggest challenges:
 To do:
 - Upgrade the parser so it works for all types of reports (for now it works for standard and consolidated financial raports)
 
+# How to use
+Download the repository.
+Start with docker:
+cd to /indicators and use docker-compose
+```
+docker-compose up
+```
+Start with Python:
+Preferably create a virtual environment.
+cd to /indicators/indicatorsproject
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install packages.
+```
+pip install -r requirements.txt
+```
+With requirements installed you can run the app:
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+# Samples
+In /indicators/samples you can find financial statements of real companies that have been anonymized
