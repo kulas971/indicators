@@ -1,4 +1,5 @@
 indicatorsproject/media/*
+indicatorsproject/accounts/migrations/*
 
 __pycache__
 *.pyc
