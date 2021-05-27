@@ -2,6 +2,4 @@
 
 set -e
 
-python manage.py collectstatic --noinput
-
-uwsgi --socket :8000 --master --enable-threads --module indicatorsproject.wsgi
+python manage.py runserver 0:8000
